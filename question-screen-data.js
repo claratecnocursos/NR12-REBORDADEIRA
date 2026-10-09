@@ -22,7 +22,8 @@ window.QUESTION_SCREEN_SESSION = {
         {
           id: "nr12-m1-capa",
           type: "cover",
-          icon: "📘",
+          image: "assets/fotos/capa-modulo1.png",
+          imageAlt: "Operadora ao lado da rebordadeira automática no galpão",
           title: "Módulo 1 — Fundamentos da NR-12",
           subtitle: "Objetivo da norma, capacitação do Anexo II, os 12 anexos e as exceções do item 12.1.4."
         },
