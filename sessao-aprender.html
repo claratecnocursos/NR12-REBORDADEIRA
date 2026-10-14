@@ -166,7 +166,7 @@
 
   <audio id="bg-music" loop preload="metadata" aria-hidden="true"></audio>
 
-  <script src="question-screen-data.js?v=nr12-2"></script>
+  <script src="question-screen-data.js?v=nr12-13"></script>
   <script src="question-screen.js?v=nr12-1"></script>
   <script src="narration-text.js?v=nr12-1"></script>
   <script src="narration.js?v=nr11-2"></script>
@@ -941,6 +941,19 @@
     return 0;
   }
 
+  /* Contagem só das telas de conteúdo, na ordem do curso inteiro.
+     Abertura e menu ficam de fora para a página 1 ser a capa do módulo 1. */
+  function contentPageCount() {
+    var total = 0;
+    var current = 0;
+    for (var i = 0; i < catalog.length; i++) {
+      if (catalog[i].view !== 'play') continue;
+      total++;
+      if (mode === 'play' && catalog[i].mi === modIndex && catalog[i].si === slideIndex) current = total;
+    }
+    return { n: current, total: total };
+  }
+
   function typeLabel(type) {
     return (
       type === 'home' ? 'Abertura' :
@@ -1079,16 +1092,13 @@
     var globalPos = globalN ? (globalN + ' / ' + globalTotal) : ('— / ' + globalTotal);
     var chip = document.getElementById('pageChip');
     if (chip) {
-      if (mode !== 'play' || modIndex < 0) {
+      var pages = contentPageCount();
+      if (mode !== 'play' || modIndex < 0 || !pages.n) {
         chip.hidden = true;
       } else {
-        var list = screens();
-        var total = list.length || 1;
-        var n = Math.min(total, (slideIndex | 0) + 1);
-        if (showingResult) n = total;
         chip.hidden = false;
-        chip.textContent = n + ' / ' + total;
-        chip.title = 'Tela do módulo';
+        chip.textContent = pages.n + ' / ' + pages.total;
+        chip.title = 'Página do treinamento';
       }
     }
     var posEl = document.getElementById('simJumpPos');

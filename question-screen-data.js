@@ -29,148 +29,114 @@ window.QUESTION_SCREEN_SESSION = {
         },
         {
           id: "nr12-m1-abrangencia",
-          type: "content",
-          fit: true,
-          kicker: "NR-12",
-          title: "O que a norma protege e onde ela vale",
-          body: "A NR-12 é norma do Ministério do Trabalho e Emprego, junto à Portaria MTb nº 3.214, de 8 de junho de 1978. O objetivo é proteger a integridade física e a saúde de quem trabalha com máquinas e equipamentos.",
-          cards: [
-            { icon: "1", title: "Onde se aplica", body: "Em todas as atividades econômicas, nas etapas de projeto, utilização, fabricação, importação, comercialização, exposição e cessão a qualquer título." },
-            { icon: "2", title: "Normas de apoio", body: "Quando a NR-12 não detalha o caso, valem normas técnicas oficiais, normas internacionais e normas europeias tipo C harmonizadas." },
-            { icon: "3", title: "Antes de operar", body: "A capacitação é obrigatória antes da operação. Sem ela, a máquina não é liberada para o trabalhador." }
-          ],
-          note: { label: "Lembrete", text: "A norma começa no projeto da máquina e segue até o uso no posto de trabalho." }
+          type: "video",
+          kicker: "Vídeo",
+          title: "Boas-Vindas e Fundamentos da NR 12",
+          playerId: "panda-91c92ad1-003b-4707-905e-02ba9e0453dc",
+          embed: "https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=91c92ad1-003b-4707-905e-02ba9e0453dc"
         },
         {
           id: "nr12-m1-eixos-1",
-          type: "content",
-          fit: true,
-          kicker: "Anexo II",
-          title: "Capacitação obrigatória, itens a até e",
-          body: "O Anexo II fixa o conteúdo programático. Estes são os cinco primeiros eixos.",
-          items: [
-            { n: "a", title: "Riscos e proteções", text: "Descrever e identificar os riscos da máquina e as proteções específicas de cada um." },
-            { n: "b", title: "Como a proteção funciona", text: "Entender o funcionamento das proteções e o motivo de usá-las." },
-            { n: "c", title: "Quem pode remover", text: "Saber em que circunstância uma proteção sai e quem tem autorização para removê-la." },
-            { n: "d", title: "Proteção danificada", text: "Se a proteção falhar ou quebrar, o supervisor é acionado na hora. O operador não segue com a máquina aberta." },
-            { n: "e", title: "Princípios de segurança", text: "Conhecer os princípios fundamentais de segurança na máquina." }
-          ]
+          type: "video",
+          kicker: "Vídeo",
+          title: "Capacitação Obrigatória: Os 9 Eixos do Anexo II",
+          playerId: "panda-f0fa0f34-5c86-43df-a1b1-6b1a9761c65a",
+          embed: "https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=f0fa0f34-5c86-43df-a1b1-6b1a9761c65a"
         },
         {
           id: "nr12-m1-eixos-2",
           type: "content",
           fit: true,
-          kicker: "Anexo II",
-          title: "Capacitação obrigatória, itens f até i",
-          body: "Os quatro eixos seguintes fecham o programa legal da capacitação.",
+          kicker: "Anexos · 1 de 2",
+          title: "Disposição da NR 12 (Anexos)",
+          body: "Anexos I a VI.",
           items: [
-            { n: "f", title: "Tipos de risco", text: "Proteção contra riscos mecânicos, elétricos e outros riscos relevantes da máquina." },
-            { n: "g", title: "Método seguro", text: "O método de trabalho seguro da operação, do começo ao fim do ciclo." },
-            { n: "h", title: "Permissão de trabalho", text: "Quando a tarefa exige permissão de trabalho e quem autoriza." },
-            { n: "i", title: "Bloqueio", text: "Sistema de bloqueio do funcionamento durante inspeção, limpeza, lubrificação e manutenção." }
-          ],
-          note: { label: "Anexo II", text: "São nove eixos, de a até i. A capacitação só está completa quando os nove foram ensinados." }
-        },
-        {
-          id: "nr12-m1-anexos-1",
-          type: "content",
-          fit: true,
-          kicker: "Anexos I a VI",
-          title: "Como a NR-12 se organiza",
-          body: "Além do texto principal, a norma tem doze anexos. A primeira metade cobre dispositivos, capacitação e alguns setores.",
-          items: [
-            { n: "I", title: "Detectores optoeletrônicos", text: "Cortinas de luz e sensores que param a máquina quando alguém entra na zona de risco." },
-            { n: "II", title: "Capacitação", text: "O programa obrigatório de treinamento, com os nove eixos." },
-            { n: "III", title: "Meios de acesso", text: "Escadas, plataformas e passarelas permanentes de máquinas." },
-            { n: "IV", title: "Glossário", text: "O significado dos termos usados na norma." },
-            { n: "V", title: "Motosserras", text: "Requisitos específicos desse equipamento." },
-            { n: "VI", title: "Panificação e confeitaria", text: "Máquinas típicas de padaria e confeitaria." }
+            { n: "I", title: "Detectores", text: "Requisitos para o uso de detectores de presença optoeletrônicos." },
+            { n: "II", title: "Capacitação", text: "Conteúdo programático da capacitação." },
+            { n: "III", title: "Acesso", text: "Meios de acesso a máquinas e equipamentos." },
+            { n: "IV", title: "Glossário", text: "Glossário." },
+            { n: "V", title: "Motosserras", text: "Motosserras." },
+            { n: "VI", title: "Panificação", text: "Máquinas para panificação e confeitaria." }
           ]
         },
         {
-          id: "nr12-m1-anexos-2",
+          id: "nr12-m1-eixos-3",
           type: "content",
           fit: true,
-          kicker: "Anexos VII a XII",
-          title: "Setores e equipamentos específicos",
-          body: "A segunda metade dos anexos trata de outros ramos e de máquinas com regra própria.",
+          kicker: "Anexos · 2 de 2",
+          title: "Disposição da NR 12 (Anexos)",
+          body: "Anexos VII a XII.",
           items: [
-            { n: "VII", title: "Açougue e alimentação", text: "Açougue, mercearia, bares e restaurantes." },
-            { n: "VIII", title: "Prensas e similares", text: "Prensas e equipamentos semelhantes." },
-            { n: "IX", title: "Injetora de plásticos", text: "Máquinas injetoras de materiais plásticos." },
-            { n: "X", title: "Calçados e afins", text: "Máquinas da indústria de calçados." },
-            { n: "XI", title: "Uso agrícola e florestal", text: "Máquinas e implementos agrícolas e florestais." },
-            { n: "XII", title: "Guindar e altura", text: "Equipamentos de guindar para elevação de pessoas e trabalho em altura." }
+            { n: "VII", title: "Alimentação", text: "Máquinas para açougue, mercearia, bares e restaurantes." },
+            { n: "VIII", title: "Prensas", text: "Prensas e similares." },
+            { n: "IX", title: "Plásticos", text: "Injetora de materiais plásticos." },
+            { n: "X", title: "Calçados", text: "Máquinas para fabricação de calçados e afins." },
+            { n: "XI", title: "Agrícola", text: "Máquinas e implementos para uso agrícola e florestal." },
+            { n: "XII", title: "Guindar", text: "Equipamentos de guindar para elevação de pessoas e realização de trabalho em altura." }
           ]
         },
         {
           id: "nr12-m1-excecoes",
-          type: "content",
-          fit: true,
-          kicker: "Item 12.1.4",
+          type: "video",
+          kicker: "Vídeo",
           title: "Onde a NR-12 não se aplica",
-          body: "O subitem 12.1.4 lista o que fica fora da norma. Fora da lista, a NR-12 continua valendo.",
-          items: [
-            { n: "a", title: "Tração animal", text: "Máquinas impulsionadas por bois, cavalos ou outro animal. Exemplo: carroça e arado." },
-            { n: "b", title: "Força humana", text: "Equipamentos movidos só pela força da pessoa, como paleteira manual, transpaleteira manual e carro de transporte." },
-            { n: "c", title: "Museu e feira", text: "Peças históricas ou antiguidades em museu, feira ou evento, sem fim produtivo, com segurança para expositores e visitantes." },
-            { n: "d", title: "Eletrodoméstico", text: "Equipamento eletrodoméstico com selo do INMETRO, como fogão, geladeira, ventilador ou aspirador." },
-            { n: "e", title: "Estático", text: "Equipamento que não tem movimento de trabalho, como caldeira, vaso de pressão, tanque e tubulação." },
-            { n: "f", title: "Ferramenta portátil", text: "Ferramenta elétrica portátil ou transportável que cumpra norma técnica tipo C, nacional ou internacional. Exemplo: furadeira, tico-tico e tupia manual." },
-            { n: "g", title: "Certificado INMETRO", text: "Máquina certificada pelo INMETRO que atenda a todos os requisitos técnicos de segurança construtiva." }
-          ],
-          note: { label: "Atenção", text: "A rebordadeira automática de produção não entra nessas alíneas. Ela permanece no regime da NR-12." }
+          playerId: "panda-7a94601d-eb52-47c6-ba72-5c42b7361f1b",
+          embed: "https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=7a94601d-eb52-47c6-ba72-5c42b7361f1b"
+        },
+        {
+          id: "nr12-m1-excecoes-2",
+          type: "video",
+          kicker: "Vídeo",
+          title: "Onde a NR-12 não se aplica, parte 2",
+          playerId: "panda-fb1601e0-2599-40ae-813c-54bd341a9afd",
+          embed: "https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=fb1601e0-2599-40ae-813c-54bd341a9afd"
         },
         {
           id: "nr12-m1-desafio",
           type: "quiz-intro",
-          title: "A NR-12 se aplica?",
-          body: "Três situações. Acerte no mínimo <strong>2</strong> de <strong>3</strong> para concluir o módulo.",
-          count: 3,
-          minCorrect: 2,
+          title: "Aplica ou não aplica?",
+          body: "Cinco casos dos vídeos deste módulo. Jogue cada um em <strong>Aplica</strong> ou <strong>Não se aplica</strong>. Acerte no mínimo <strong>4</strong> de <strong>5</strong>.",
+          count: 5,
+          minCorrect: 4,
           icon: "🎯"
         },
         {
-          id: "nr12-m1-p1",
-          type: "question",
-          icon: "🚜",
-          question: "Qual equipamento está fora da NR-12 pelo item 12.1.4?",
-          alternatives: [
-            { id: "a", text: "Rebordadeira automática usada na produção de painéis de MDF", correct: false },
-            { id: "b", text: "Paleteira manual, movida só pela força de quem empurra", correct: true },
-            { id: "c", text: "Serra de painel motorizada da marcenaria", correct: false },
-            { id: "d", text: "Qualquer máquina importada, mesmo em uso produtivo", correct: false }
-          ],
-          explanation: "A alínea b exclui máquinas e equipamentos acionados por força humana. A rebordadeira automática de produção continua na NR-12.",
-          review: "A exceção da força humana"
-        },
-        {
-          id: "nr12-m1-p2",
-          type: "question",
-          icon: "📋",
-          question: "O Anexo II da NR-12 trata de quê?",
-          alternatives: [
-            { id: "a", text: "Do glossário dos termos da norma", correct: false },
-            { id: "b", text: "Da capacitação obrigatória, com nove eixos de a até i", correct: true },
-            { id: "c", text: "Só de motosserras e equipamentos agrícolas", correct: false },
-            { id: "d", text: "Dos meios de acesso permanentes, como escadas e plataformas", correct: false }
-          ],
-          explanation: "O Anexo II é o da capacitação. O glossário é o Anexo IV e os meios de acesso são o Anexo III.",
-          review: "O papel do Anexo II"
-        },
-        {
-          id: "nr12-m1-p3",
-          type: "question",
-          icon: "⚠️",
-          question: "A proteção da máquina quebrou no meio do turno. O que a capacitação manda fazer?",
-          alternatives: [
-            { id: "a", text: "Seguir produzindo e avisar só no fim do expediente", correct: false },
-            { id: "b", text: "Retirar a proteção e operar com a área aberta", correct: false },
-            { id: "c", text: "Acionar o supervisor na hora e não seguir com a proteção danificada", correct: true },
-            { id: "d", text: "Trocar a proteção por conta própria, sem autorização", correct: false }
-          ],
-          explanation: "O item d do Anexo II pede o acionamento imediato do supervisor quando a proteção falha ou sofre dano.",
-          review: "Falha de proteção"
+          id: "nr12-m1-sorteio",
+          type: "sort",
+          title: "Aplica ou não aplica?",
+          body: "Use só o que os vídeos do módulo 1 ensinaram.",
+          time: 45,
+          minCorrect: 4,
+          review: "A rebordadeira na NR-12 e as principais exceções do item 12.1.4",
+          left: { id: "nok", label: "Não se aplica", icon: "⛔" },
+          right: { id: "ok", label: "Aplica", icon: "✅" },
+          items: [
+            {
+              text: "Rebordadeira motorizada em operação no chão de fábrica.",
+              bin: "ok",
+              hint: "O treinamento é desta máquina. A NR-12 vale na operação no chão de fábrica."
+            },
+            {
+              text: "Arado ou carroça movidos por tração animal.",
+              bin: "nok",
+              hint: "Primeira exceção do item 12.1.4: tração animal."
+            },
+            {
+              text: "Paleteira manual acionada só por força humana.",
+              bin: "nok",
+              hint: "Segunda exceção: força humana, sem motorização."
+            },
+            {
+              text: "Eletrodoméstico com selo do INMETRO.",
+              bin: "nok",
+              hint: "Quarta exceção: eletrodoméstico com selo do INMETRO."
+            },
+            {
+              text: "Furadeira ou tupia manual que cumpre norma do Tipo C.",
+              bin: "nok",
+              hint: "Sexta exceção: ferramenta elétrica portátil na norma Tipo C."
+            }
+          ]
         }
       ]
     },
