@@ -154,6 +154,8 @@ window.QUESTION_SCREEN_SESSION = {
           id: "nr12-m2-capa",
           type: "cover",
           icon: "⚙️",
+          image: "assets/fotos/capa-modulo2.png",
+          imageAlt: "Operadora ao lado da rebordadeira automática no galpão",
           title: "Módulo 2 — A máquina rebordadeira",
           subtitle: "Definição, modelo manual e automático, e os grupos mecânicos do equipamento."
         },
