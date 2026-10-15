@@ -159,114 +159,135 @@ window.QUESTION_SCREEN_SESSION = {
         },
         {
           id: "nr12-m2-definicao",
-          type: "content",
-          fit: true,
-          kicker: "Conceito",
-          title: "Máquina e rebordadeira",
-          body: "Máquina é um dispositivo artificial que converte energia para uma finalidade definida. A rebordadeira, ou coladeira de borda, é um equipamento eletropneumático, manual ou automático.",
-          cards: [
-            { icon: "1", title: "O que ela faz", body: "Cola, destopa, refila e pole a fita de borda no canto da chapa." },
-            { icon: "2", title: "Materiais da fita", body: "PVC, ABS, melamina ou lâmina de madeira, em espessuras diferentes." },
-            { icon: "3", title: "A chapa", body: "O acabamento é feito em painéis de madeira, em especial MDF e MDP." }
-          ],
-          quote: "A fita entra de um lado. O canto acabado sai do outro, depois de colar, cortar, refilar, raspar e polir."
+          type: "video",
+          kicker: "Vídeo",
+          title: "O que é a Rebordadeira e suas Aplicações",
+          playerId: "panda-99dfe241-f367-4bdb-abc8-9a137bae0d5a",
+          embed: "https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=99dfe241-f367-4bdb-abc8-9a137bae0d5a"
         },
         {
           id: "nr12-m2-tipos",
+          type: "video",
+          kicker: "Vídeo",
+          title: "Rebordadeira Manual versus Automática",
+          playerId: "panda-040a0cac-0362-44fe-9481-29d2c9aa1a7f",
+          embed: "https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=040a0cac-0362-44fe-9481-29d2c9aa1a7f"
+        },
+        {
+          id: "nr12-m2-componentes",
           type: "content",
-          fit: true,
-          kicker: "Dois modelos",
-          title: "Manual e automática",
-          cards: [
-            { icon: "🖐️", title: "Manual", body: "A peça avança na mão do operador. O acionamento é por alavanca, com o aplicador de cola em bancada aberta. A mecânica é mais simples: alavanca de corte, rolo de fita e mesa." },
-            { icon: "🔄", title: "Automática", body: "A máquina puxa o painel. Tem mesa, esteira motorizada, exaustão de resíduos e grupos em sequência: corte e acabamento, um depois do outro. Referência de vista: modelo Baldan CB-5, frente fechada e traseira com os grupos à mostra." }
-          ],
-          note: { label: "Este curso", text: "O foco da operação é a rebordadeira automática. O modelo manual entra só para comparar a construção." }
+          title: "Componentes rebordadeira automática",
+          stack: [
+            {
+              image: "assets/fotos/REBORDADEIRA AUTOMATICA.png",
+              imageAlt: "Conjunto refilador, conjunto destopador, guia de fita e coleiro"
+            },
+            {
+              image: "assets/fotos/REBORDADEIRA AUTOMATICA 2.png",
+              imageAlt: "Suporte de fita, raspador superior, raspador inferior, pistola de ar, chave geral e saída de pó"
+            },
+            {
+              image: "assets/fotos/REBORDADEIRA AUTOMATICA 3.png",
+              imageAlt: "Vista interna com conjunto polidor, refilador, destopador, prensor, suporte da faca, caixa coleiro e puxador da fita"
+            }
+          ]
         },
         {
           id: "nr12-m2-grupos-1",
-          type: "content",
-          fit: true,
-          kicker: "Entrada da peça",
-          title: "Do painel até a cola",
-          body: "A chapa entra pela mesa e a fita desce da bobina até o coleiro.",
-          items: [
-            { n: "1", title: "Mesa e esteira", text: "Sustentam o MDF e fazem o avanço contínuo do painel." },
-            { n: "2", title: "Painel de comando", text: "Onde se liga cada grupo e se lê o estado da máquina." },
-            { n: "3", title: "Bobina e guia da fita", text: "A bobina guarda o rolo. A guia conduz a fita até o ponto de colagem." },
-            { n: "4", title: "Rolo estabilizador e puxador", text: "Mantêm a fita no eixo e puxam o material sem folga nem tranco." },
-            { n: "5", title: "Caixa coleiro", text: "Tanque de cola e eixo aplicador. É aqui que a fita recebe a cola quente." },
-            { n: "6", title: "Suporte da faca", text: "Faz o corte inicial da fita no comprimento da peça." },
-            { n: "7", title: "Conjunto prensor", text: "Roletes de pressão que assentam a fita no canto do painel." }
-          ]
+          type: "video",
+          kicker: "Vídeo",
+          title: "O Ciclo de Entrada: Fita, Cola e Pressão",
+          playerId: "panda-4b0ed609-90f8-4a7b-b3a4-1188d32a40c7",
+          embed: "https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=4b0ed609-90f8-4a7b-b3a4-1188d32a40c7"
         },
         {
           id: "nr12-m2-grupos-2",
-          type: "content",
-          fit: true,
-          kicker: "Acabamento",
-          title: "Do corte ao pó",
-          body: "Depois da cola, os grupos de usinagem fecham o acabamento. Em volta deles ficam os apoios de ar, energia e exaustão.",
-          items: [
-            { n: "1", title: "Destopador", text: "Corta o excesso da fita no topo dianteiro e no topo traseiro do painel." },
-            { n: "2", title: "Refilador", text: "Tira o excesso longitudinal da fita, na face de cima e na de baixo." },
-            { n: "3", title: "Raspadores", text: "O superior e o inferior fazem a raspagem fina, entre os roletes, para o canto ficar no esquadro." },
-            { n: "4", title: "Polidor", text: "Escovas ou discos dão brilho e o acabamento final da borda." },
-            { n: "5", title: "Pistola de ar", text: "Apoio operacional e limpeza localizada com ar comprimido." },
-            { n: "6", title: "Chave geral", text: "Seccionadora rotativa. Corta a alimentação elétrica da máquina." },
-            { n: "7", title: "Saída de pó", text: "Bocal e tubulação ligados ao coletor ou ao sistema de exaustão." }
-          ]
+          type: "video",
+          kicker: "Vídeo",
+          title: "Usinagem e Acabamento: Destopador, Refilador e Polidor",
+          playerId: "panda-c6ecfd6e-e9df-4a87-831e-28a79eda7d53",
+          embed: "https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=c6ecfd6e-e9df-4a87-831e-28a79eda7d53"
+        },
+        {
+          id: "nr12-m2-raspadores",
+          type: "video",
+          kicker: "Vídeo",
+          title: "Raspadores e Acessórios Periféricos",
+          playerId: "panda-ef298dc1-2133-485a-8f05-49b00f581b5b",
+          embed: "https://player-vz-d35edf2a-8e7.tv.pandavideo.com.br/embed/?v=ef298dc1-2133-485a-8f05-49b00f581b5b"
         },
         {
           id: "nr12-m2-desafio",
           type: "quiz-intro",
-          title: "Qual grupo é esse?",
-          body: "Três perguntas sobre a máquina. Acerte no mínimo <strong>2</strong> de <strong>3</strong>.",
-          count: 3,
-          minCorrect: 2,
+          title: "A máquina nos vídeos",
+          body: "Quatro perguntas dos vídeos deste módulo. Acerte no mínimo <strong>3</strong> de <strong>4</strong>.",
+          count: 4,
+          minCorrect: 3,
           icon: "🎯"
         },
         {
-          id: "nr12-m2-p1",
+          id: "nr12-m2-q2",
           type: "question",
           icon: "🔄",
-          question: "O que diferencia a rebordadeira automática da manual?",
+          image: "assets/fotos/M2I1.png",
+          imageAlt: "Rebordadeira automática com esteira ao lado da rebordadeira manual de bancada",
+          question: "Qual é a diferença entre a rebordadeira manual e a automática Baldan CB-5?",
           alternatives: [
-            { id: "a", text: "A automática só cola fita de tecido e a manual cola PVC", correct: false },
-            { id: "b", text: "A automática tem esteira motorizada e grupos em sequência; a manual avança a peça na mão, com alavanca", correct: true },
-            { id: "c", text: "A manual tem exaustão e a automática não tem", correct: false },
-            { id: "d", text: "As duas operam do mesmo jeito; muda só a cor da carcaça", correct: false }
+            { id: "a", text: "Na manual o operador empurra o painel e corta com alavanca. Na automática a esteira motorizada puxa a madeira e os grupos de corte ficam na traseira", correct: true },
+            { id: "b", text: "Na automática o operador empurra a peça na bancada aberta e a manual tem esteira motorizada", correct: false },
+            { id: "c", text: "A automática serve só para peças curvas e a manual é a linha contínua", correct: false },
+            { id: "d", text: "As duas trabalham do mesmo jeito. Muda só a cabine frontal", correct: false }
           ],
-          explanation: "No modelo manual a peça é empurrada pelo operador, com alavanca e bancada aberta. No automático a esteira puxa o painel e os grupos trabalham em sequência.",
+          explanation: "A manual é bancada aberta: o operador empurra o painel no rolo de cola e aciona a alavanca. A Baldan CB-5 tem esteira rolante, cabine frontal e os grupos de corte alinhados na traseira.",
           review: "Manual e automática"
         },
         {
-          id: "nr12-m2-p2",
-          type: "question",
-          icon: "✂️",
-          question: "Qual conjunto corta a fita nos topos dianteiro e traseiro do painel?",
-          alternatives: [
-            { id: "a", text: "Conjunto polidor", correct: false },
-            { id: "b", text: "Caixa coleiro", correct: false },
-            { id: "c", text: "Conjunto destopador", correct: true },
-            { id: "d", text: "Rolo estabilizador", correct: false }
-          ],
-          explanation: "O destopador corta as pontas da fita. O refilador tira o excesso no comprimento. O polidor dá o brilho final.",
-          review: "A função do destopador"
-        },
-        {
-          id: "nr12-m2-p3",
+          id: "nr12-m2-q3",
           type: "question",
           icon: "🧴",
-          question: "Onde a cola quente é aplicada na fita?",
+          image: "assets/fotos/M2I2.png",
+          imageAlt: "Fita saindo da bobina e seguindo para o painel na esteira da rebordadeira",
+          question: "O que acontece na caixa coleiro?",
           alternatives: [
-            { id: "a", text: "Na caixa coleiro, no tanque e no eixo aplicador", correct: true },
-            { id: "b", text: "No bocal de saída de pó", correct: false },
-            { id: "c", text: "Na chave geral seccionadora", correct: false },
-            { id: "d", text: "Somente nos raspadores superior e inferior", correct: false }
+            { id: "a", text: "A faca corta a fita no tamanho da peça", correct: false },
+            { id: "b", text: "Os roletes apertam a fita no MDF", correct: false },
+            { id: "c", text: "A cola quente é fundida e passa para a madeira pelo eixo aplicador", correct: true },
+            { id: "d", text: "Os discos de escova lustram a fita", correct: false }
           ],
-          explanation: "A caixa coleiro guarda a cola e o eixo aplicador a deposita na fita. Os raspadores só fazem o acabamento depois da colagem.",
+          explanation: "A fita sai da bobina, passa pela guia e pelo estabilizador e o puxador a puxa. A faca corta o tamanho. Na caixa coleiro a cola quente vai para a madeira pelo eixo aplicador. Depois o prensor assenta a fita.",
           review: "A caixa coleiro"
+        },
+        {
+          id: "nr12-m2-q4",
+          type: "question",
+          icon: "✂️",
+          image: "assets/fotos/M2I3.png",
+          imageAlt: "Conjunto de corte retirando as sobras de fita no início e no fim do painel",
+          question: "Qual conjunto corta as sobras de fita no início e no fim do painel?",
+          alternatives: [
+            { id: "a", text: "O conjunto polidor, com discos de escova", correct: false },
+            { id: "b", text: "O conjunto destopador, com serras de alta velocidade", correct: true },
+            { id: "c", text: "O conjunto refilador, que tira o excesso em cima e embaixo", correct: false },
+            { id: "d", text: "O conjunto prensor, com os roletes de pressão", correct: false }
+          ],
+          explanation: "O destopador corta as pontas. O refilador usina o excesso de cima e de baixo. O polidor limpa o resto de cola e lustra a fita.",
+          review: "O destopador"
+        },
+        {
+          id: "nr12-m2-q5",
+          type: "question",
+          icon: "🧽",
+          image: "assets/fotos/M2I4.png",
+          imageAlt: "Raspadores retirando a rebarba fina da fita na borda do painel",
+          question: "Qual é a função dos raspadores superior e inferior?",
+          alternatives: [
+            { id: "a", text: "Ligar e desligar a alimentação elétrica da máquina", correct: false },
+            { id: "b", text: "Aspirar cavacos pelo bocal de saída de pó", correct: false },
+            { id: "c", text: "Fazer a raspagem fina das rebarbas depois do refilador", correct: true },
+            { id: "d", text: "Fundir a cola antes do conjunto prensor", correct: false }
+          ],
+          explanation: "Os raspadores tiram a rebarba fina depois do refilador. A chave geral corta a energia, a saída de pó vai para a exaustão e a pistola de ar limpa a bancada.",
+          review: "Os raspadores"
         }
       ]
     },
