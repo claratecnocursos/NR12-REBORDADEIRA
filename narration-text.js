@@ -57,6 +57,7 @@
       .replace(/[•·▶✓✕×|]/g, ' ')
       .replace(/\s*—\s*/g, ', ')
       .replace(/\bNR-12\b/g, 'N R doze')
+      .replace(/\bNR-13\b/g, 'N R treze')
       .replace(/\bNR-11\b/g, 'N R onze')
       .replace(/\bMDF\b/g, 'M D F')
       .replace(/\bMDP\b/g, 'M D P')
@@ -178,6 +179,26 @@
     return out + ' Cada acerto vale 50 pontos.';
   }
 
+  function buildTopicText(screen, item, index, total) {
+    if (!item) return '';
+    var parts = [];
+    var n = (index || 0) + 1;
+    var t = total || list(screen && screen.items).length;
+    if (t) parts.push('Tópico ' + n + ' de ' + t + '.');
+    if (item.title) parts.push(clean(item.title) + '.');
+    if (item.text || item.body) parts.push(sentence(item.text || item.body));
+    return joinParts(parts);
+  }
+
+  function buildSortCaseText(screen, item) {
+    if (!screen || !item) return '';
+    var parts = [];
+    if (item.text) parts.push(sentence(item.text));
+    if (screen.left && screen.left.label) parts.push(clean(screen.left.label) + '.');
+    if (screen.right && screen.right.label) parts.push(clean(screen.right.label) + '.');
+    return joinParts(parts);
+  }
+
   function buildScreenText(screen) {
     if (!screen) return '';
     if (screen.transcript) return clean(stripHtml(screen.transcript));
@@ -202,16 +223,11 @@
     }
 
     /* Ordenar e associar embaralham os itens a cada exibição, e os dados
-       guardam a resposta certa: aqui vai só o enunciado. */
+       guardam a resposta certa: aqui vai só o enunciado. O caso do
+       sorteio tem áudio próprio e entra por buildSortCaseText. */
     if (screen.type === 'order' || screen.type === 'match' || screen.type === 'sort') {
       if (screen.title) parts.push(clean(screen.title) + '.');
       if (screen.body) parts.push(clean(stripHtml(screen.body)));
-      if (screen.type === 'sort') {
-        var total = list(screen.items).length;
-        if (total) parts.push('Caso 1 de ' + total + '.');
-        if (screen.left && screen.left.label) parts.push(clean(screen.left.label) + '.');
-        if (screen.right && screen.right.label) parts.push(clean(screen.right.label) + '.');
-      }
       return joinParts(parts);
     }
 
@@ -299,6 +315,8 @@
     clean: clean,
     buildCatalog: buildCatalog,
     buildScreenText: buildScreenText,
+    buildSortCaseText: buildSortCaseText,
+    buildTopicText: buildTopicText,
     buildHomeText: buildHomeText,
     menuAudioKey: menuAudioKey,
     buildMenuCardText: buildMenuCardText,

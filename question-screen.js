@@ -560,6 +560,32 @@
       </article>`;
   }
 
+  function sideHTML(data) {
+    var copy = Object.assign({}, data);
+    delete copy.images;
+    var photos = data.images.map(function (img) {
+      var src = typeof img === 'string' ? img : (img.image || img.src || '');
+      var alt = typeof img === 'string' ? '' : (img.imageAlt || img.alt || img.caption || '');
+      var cap = typeof img === 'string' ? '' : (img.caption || '');
+      if (!src) return '';
+      return `<figure class="qs-side-photo">
+        <button type="button" class="qs-zoom-hit" data-qs-zoom="${esc(src)}" data-qs-zoom-alt="${esc(alt)}" aria-label="Ampliar imagem">
+          <img src="${esc(src)}" alt="${esc(alt)}" loading="eager" decoding="async">
+          <span class="qs-zoom-fab" aria-hidden="true">${zoomIcon()}</span>
+        </button>
+        ${cap ? `<figcaption>${esc(cap)}</figcaption>` : ''}
+      </figure>`;
+    }).join('');
+    return `
+      <article class="qs-screen is-content is-side" data-qs-root data-type="content">
+        <div class="qs-side-copy">
+          <h2 class="qs-title">${esc(data.title || '')}</h2>
+          ${contentBlocks(copy)}
+        </div>
+        <div class="qs-side-photos">${photos}</div>
+      </article>`;
+  }
+
   function figureHTML(data) {
     // cards aqui viram faixas rasas, para a foto seguir sendo o assunto da tela
     var cards = Array.isArray(data.cards) ? data.cards : [];
@@ -686,6 +712,9 @@
     if (data.layout === 'figure' && data.image) {
       return figureHTML(data);
     }
+    if (data.layout === 'side' && Array.isArray(data.images) && data.images.length) {
+      return sideHTML(data);
+    }
     var hasImg = !!data.image;
     var rulesCount = Array.isArray(data.rules) ? data.rules.length : 0;
     var normCompact = !!(data.compact || (hasImg && rulesCount > 0));
@@ -727,6 +756,9 @@
 
   function stepsHTML(data) {
     var items = data.items || [];
+    var topic = !!data.topics;
+    var word = topic ? 'Tópico' : 'Exercício';
+    var nextLabel = topic ? 'Próximo tópico' : 'Próximo exercício';
     var slides = items.map(function (it, i) {
       var raw = it.text || it.body || '';
       var d = splitDose(raw);
@@ -735,39 +767,47 @@
         return `<span class="qs-dose ${rep ? 'is-rep' : 'is-time'}">${esc(t)}</span>`;
       }).join('');
       var num = it.n != null ? it.n : (i + 1);
-      return `<div class="qs-step${i === 0 ? ' is-on' : ''}" data-qs-step="${i}"${i === 0 ? '' : ' hidden'}>
-        <div class="qs-step-media">
+      var media = topic
+        ? ''
+        : `<div class="qs-step-media">
           ${it.image
             ? `<button type="button" class="qs-zoom-hit" data-qs-zoom="${esc(it.image)}" data-qs-zoom-alt="${esc(it.imageAlt || it.title || '')}" aria-label="Ampliar imagem">
                 <img class="qs-step-img" src="${esc(it.image)}" alt="${esc(it.imageAlt || it.title || '')}" loading="${i < 2 ? 'eager' : 'lazy'}" decoding="async">
                 <span class="qs-zoom-fab" aria-hidden="true">${zoomIcon()}</span>
               </button>`
             : `<div class="qs-step-fallback">${esc(num)}</div>`}
-        </div>
-        <div class="qs-step-info">
+        </div>`;
+      var info = `<div class="qs-step-info">
+          ${topic ? `<span class="qs-topic-mark" aria-hidden="true">${esc(num)}</span>` : ''}
           <div class="qs-step-head">
-            <span class="qs-step-num">${esc(num)}</span>
+            ${topic ? '' : `<span class="qs-step-num">${esc(num)}</span>`}
             ${it.title ? `<b class="qs-step-title">${esc(it.title)}</b>` : ''}
             ${doses ? `<span class="qs-doses">${doses}</span>` : ''}
           </div>
           <p class="qs-step-move">${esc(d ? d.move : raw)}</p>
           ${d && d.caveat ? `<span class="qs-item-warn">${esc(d.caveat)}</span>` : ''}
-        </div>
+        </div>`;
+      return `<div class="qs-step${i === 0 ? ' is-on' : ''}" data-qs-step="${i}"${i === 0 ? '' : ' hidden'}>
+        ${media}
+        ${topic ? `<div class="qs-topic-deck"><span class="qs-topic-layer is-b" aria-hidden="true"></span><span class="qs-topic-layer is-a" aria-hidden="true"></span>${info}</div>` : info}
       </div>`;
     }).join('');
 
     return `
-      <article class="qs-screen is-content is-steps" data-qs-root data-type="content">
+      <article class="qs-screen is-content is-steps${topic ? ' is-topics' : ''}" data-qs-root data-type="content">
         <div class="qs-steps" data-qs-steps>
           <header class="qs-steps-top">
             <h2 class="qs-title">${esc(data.title || '')}</h2>
-            <span class="qs-steps-count" data-qs-step-count>Exercício 1 de ${items.length}</span>
+            <span class="qs-steps-count" data-qs-step-count>${word} 1 de ${items.length}</span>
           </header>
           <div class="qs-steps-track">${slides}</div>
+          ${topic ? `<div class="qs-topic-dots" data-qs-topic-dots>${items.map(function (_, i) {
+            return `<i class="${i === 0 ? 'is-on' : ''}" data-qs-topic-dot="${i}"></i>`;
+          }).join('')}</div>` : ''}
           <div class="qs-steps-actions">
             <button type="button" class="qs-step-back" data-qs-step-prev hidden>Ver anterior</button>
             <button type="button" class="qs-step-cta" data-qs-step-next>
-              Próximo exercício
+              ${nextLabel}
             </button>
           </div>
         </div>
@@ -1773,6 +1813,7 @@
     var i = 0;
     var total = slides.length;
     var farthest = 0; // só avança em ordem; não dá para pular exercício
+    self.topicCaseId = '';
 
     function paint() {
       slides.forEach(function (s, k) {
@@ -1780,7 +1821,14 @@
         s.classList.toggle('is-on', on);
         s.hidden = !on;
       });
-      if (count) count.textContent = 'Exercício ' + (i + 1) + ' de ' + total;
+      if (count) {
+        var word = (self.data && self.data.topics) ? 'Tópico' : 'Exercício';
+        count.textContent = word + ' ' + (i + 1) + ' de ' + total;
+      }
+      root.querySelectorAll('[data-qs-topic-dot]').forEach(function (dot, k) {
+        dot.classList.toggle('is-on', k === i);
+        dot.classList.toggle('is-seen', k < i);
+      });
       if (prev) prev.hidden = i <= 0;
 
       if (!next) return;
@@ -1790,11 +1838,16 @@
       }
       next.hidden = false;
       if (i < total - 1) {
-        next.textContent = 'Próximo exercício';
+        next.textContent = (self.data && self.data.topics) ? 'Próximo tópico' : 'Próximo exercício';
         next.classList.remove('is-finish');
       } else {
-        next.textContent = 'Concluir sequência';
+        next.textContent = (self.data && self.data.topics) ? 'Concluir tópicos' : 'Concluir sequência';
         next.classList.add('is-finish');
+      }
+      if (self.data && self.data.topics) {
+        var topic = (self.data.items || [])[i];
+        self.topicCaseId = (topic && topic.id) ? topic.id : ('t' + (i + 1));
+        if (typeof self.options.onTopicCase === 'function') self.options.onTopicCase(topic, i);
       }
     }
 
@@ -2006,6 +2059,7 @@
     var index = 0;
     var moving = false;
     var hits = 0;
+    self.sortCaseId = '';
     var card = this.el.querySelector('[data-qs-sort-card]');
     var prog = this.el.querySelector('[data-qs-sort-progress]');
     var fb = this.el.querySelector('[data-qs-sort-fb]');
@@ -2013,6 +2067,7 @@
     function showCase(enter) {
       var item = deck[index];
       if (!card || !item) return;
+      self.sortCaseId = item.id || ('c' + index);
       card.textContent = item.text;
       card.classList.remove('is-wrong', 'is-ok', 'is-out');
       if (enter) {
@@ -2026,6 +2081,7 @@
         fb.textContent = '';
         fb.className = 'qs-sort-fb';
       }
+      if (typeof self.options.onSortCase === 'function') self.options.onSortCase(item, index);
     }
 
     function finish(timedOut) {

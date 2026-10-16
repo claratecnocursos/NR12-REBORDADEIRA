@@ -20,7 +20,12 @@ function ttsSpeak(text) {
   if (!text) return '';
   let t = String(text);
   t = t.replace(/[\u2014\u2013]/g, ', ');
+  t = t.replace(/\bMódulos\b/g, 'Mó dulos');
+  t = t.replace(/\bmódulos\b/g, 'mó dulos');
+  t = t.replace(/\bMódulo\b/g, 'Mó dulo');
+  t = t.replace(/\bmódulo\b/g, 'mó dulo');
   t = t.replace(/\bNR[-\s]?12\b/gi, 'N R doze');
+  t = t.replace(/\bNR[-\s]?13\b/gi, 'N R treze');
   t = t.replace(/\bNR[-\s]?11\b/gi, 'N R onze');
   t = t.replace(/\bNR[-\s]?01\b/gi, 'N R zero um');
   t = t.replace(/\bNR[-\s]?1\b/gi, 'N R um');
@@ -70,6 +75,13 @@ function ttsSpeak(text) {
   t = t.replace(/\b50\s*[×xX]\s*50\s*cm\b/gi, 'cinquenta por cinquenta centímetros');
   t = t.replace(/\b60\s*[×xX]\s*60\s*cm\b/gi, 'sessenta por sessenta centímetros');
   t = t.replace(/\b60\s*a\s*100\s*cm\b/gi, 'sessenta a cem centímetros');
+  t = t.replace(/\b3\.214\b/g, 'três mil duzentos e quatorze');
+  t = t.replace(/\b1978\b/g, 'mil novecentos e setenta e oito');
+  t = t.replace(/\bnúmero\s+12\b/gi, 'número doze');
+  t = t.replace(/\b12 anexos\b/gi, 'doze anexos');
+  t = t.replace(/\bAnexo\s+II\b/g, 'Anexo dois');
+  t = t.replace(/\bTipo\s+C\b/g, 'tipo Cê');
+  t = t.replace(/\b12\.1\.4\b/g, 'doze ponto um ponto quatro');
   t = t.replace(/\b12\.11\.3\b/g, 'doze ponto onze ponto três');
   t = t.replace(/\b12\.5\.1\.1\b/g, 'doze ponto cinco ponto um ponto um');
   t = t.replace(/\b12\.5\.15\b/g, 'doze ponto cinco ponto quinze');
@@ -154,6 +166,29 @@ function catalogEntries(session) {
           title: screen.title || screen.question || screen.id,
           screen
         });
+        if (screen.topics && Array.isArray(screen.items)) {
+          screen.items.forEach((item, i) => {
+            if (!item) return;
+            entries.push({
+              id: screen.id + '-' + (item.id || ('t' + (i + 1))),
+              title: item.title || item.text || (screen.title + ' tópico ' + (i + 1)),
+              screen,
+              topicItem: item,
+              topicIndex: i
+            });
+          });
+        }
+        if (screen.type === 'sort' && Array.isArray(screen.items)) {
+          screen.items.forEach((item, i) => {
+            if (!item) return;
+            entries.push({
+              id: screen.id + '-' + (item.id || ('c' + i)),
+              title: item.text || (screen.title + ' caso ' + (i + 1)),
+              screen,
+              sortItem: item
+            });
+          });
+        }
       }
     });
   });
@@ -165,6 +200,10 @@ function fallbackText(session, entry) {
   if (entry.id === 'menu-nr12-done' || entry.id === 'menu-nr11-done' || entry.id === 'menu-nr01-done') return T.buildMenuText(session, 0);
   var menuMatch = /^menu-nr(?:12|11|01)-(\d+)-(done-first|start|review|done)$/.exec(entry.id);
   if (menuMatch && T.buildMenuCardText) return T.buildMenuCardText(session, Number(menuMatch[1]), menuMatch[2]);
+  if (entry.topicItem && T.buildTopicText) {
+    return T.buildTopicText(entry.screen, entry.topicItem, entry.topicIndex, (entry.screen.items || []).length);
+  }
+  if (entry.sortItem && T.buildSortCaseText) return T.buildSortCaseText(entry.screen, entry.sortItem);
   if (entry.screen) return T.buildScreenText(entry.screen);
   return '';
 }

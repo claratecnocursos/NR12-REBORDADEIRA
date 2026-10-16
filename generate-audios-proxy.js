@@ -1,8 +1,9 @@
 /**
  * Gera MP3 de narração via o proxy TecnoCursos
- * (https://texttospeech.escolatecnocursos.cloud), que chama a ElevenLabs.
+ * (https://texttospeech.escolatecnocursos.cloud), que chama a ElevenLabs
+ * na voz masculina configurada no servidor.
  *
- * Login com AUTH_USERNAME / AUTH_PASSWORD do .env. Sem chave da ElevenLabs.
+ * Login com AUTH_USERNAME / AUTH_PASSWORD do .env.
  *
  * Uso:
  *   node generate-audios-proxy.js
@@ -62,7 +63,7 @@ async function synthesize(text, token) {
       Authorization: 'Bearer ' + token,
       'Content-Type': JSON_UTF8
     },
-    body: JSON.stringify({ text })
+    body: JSON.stringify({ text: text })
   });
   if (!res.ok) {
     throw new Error('TTS falhou (HTTP ' + res.status + ')');

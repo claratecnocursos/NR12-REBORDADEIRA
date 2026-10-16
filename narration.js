@@ -19,7 +19,7 @@
 
   var CONFIG = {
     audioDir: 'audios/',
-    audioVer: 'nr11-2',
+    audioVer: 'nr12-homem10',
 
     // espera curta: vários eventos juntos viram uma chamada só
     debounceMs: 300,
@@ -52,7 +52,11 @@
     if (!st) return '';
     if (st.mode === 'home') return T.HOME_KEY;
     if (st.mode === 'menu') return T.menuAudioKey(st.nextModule, st.menuVariant);
-    return (st.screen && st.screen.id) || '';
+    var screen = st.screen;
+    if (!screen) return '';
+    if (screen.type === 'sort' && st.sortCaseId) return screen.id + '-' + st.sortCaseId;
+    if (screen.topics && st.topicCaseId) return screen.id + '-' + st.topicCaseId;
+    return screen.id || '';
   }
 
   function getAudioUrl(key) {
