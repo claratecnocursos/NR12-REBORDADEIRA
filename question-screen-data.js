@@ -236,7 +236,7 @@ window.QUESTION_SCREEN_SESSION = {
           id: "nr12-m2-q2",
           type: "question",
           icon: "🔄",
-          image: "assets/fotos/M2I1.png",
+          image: "assets/fotos/m2i1.png",
           imageAlt: "Rebordadeira automática com esteira ao lado da rebordadeira manual de bancada",
           question: "Qual é a diferença entre a rebordadeira manual e a automática Baldan CB-5?",
           alternatives: [
@@ -252,7 +252,7 @@ window.QUESTION_SCREEN_SESSION = {
           id: "nr12-m2-q3",
           type: "question",
           icon: "🧴",
-          image: "assets/fotos/M2I2.png",
+          image: "assets/fotos/m2i2.png",
           imageAlt: "Fita saindo da bobina e seguindo para o painel na esteira da rebordadeira",
           question: "O que acontece na caixa coleiro?",
           alternatives: [
@@ -268,7 +268,7 @@ window.QUESTION_SCREEN_SESSION = {
           id: "nr12-m2-q4",
           type: "question",
           icon: "✂️",
-          image: "assets/fotos/M2I3.png",
+          image: "assets/fotos/m2i3.png",
           imageAlt: "Conjunto de corte retirando as sobras de fita no início e no fim do painel",
           question: "Qual conjunto corta as sobras de fita no início e no fim do painel?",
           alternatives: [
